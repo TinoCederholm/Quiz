@@ -1,10 +1,9 @@
-from django.shortcuts import render
 from django.shortcuts import redirect,render
 from django.contrib.auth import login,logout,authenticate
 from .forms import *
 from .models import *
 from django.http import HttpResponse
- 
+
 # Create your views here.
 def home(request):
     if request.method == 'POST':
@@ -40,7 +39,7 @@ def home(request):
             'questions':questions
         }
         return render(request,'Quiz/home.html',context)
- 
+
 def addQuestion(request):    
     if request.user.is_staff:
         form=addQuestionform()
@@ -53,14 +52,14 @@ def addQuestion(request):
         return render(request,'Quiz/addQuestion.html',context)
     else: 
         return redirect('home') 
- 
+
 def registerPage(request):
     if request.user.is_authenticated:
         return redirect('home') 
     else: 
-        form = createuserform()
+        form=createuserform()
         if request.method=='POST':
-            form = createuserform(request.POST)
+            form=createuserform(request.POST)
             if form.is_valid() :
                 user=form.save()
                 return redirect('login')
@@ -68,7 +67,7 @@ def registerPage(request):
             'form':form,
         }
         return render(request,'Quiz/register.html',context)
- 
+
 def loginPage(request):
     if request.user.is_authenticated:
         return redirect('home')
@@ -82,7 +81,8 @@ def loginPage(request):
             return redirect('/')
        context={}
        return render(request,'Quiz/login.html',context)
- 
+
 def logoutPage(request):
     logout(request)
     return redirect('/')
+
