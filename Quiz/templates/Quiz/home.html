@@ -6,7 +6,9 @@
 <div class="container ">
 <h1>Welcome to DataFlair Quiz</h1>
 
-<div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div>
+<!--<div id="counter">1:00</div> -->
+<!--<div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div>-->
+<div align="right " id="counter"><b>Aikaa jäljellä: 1:00 Sekunttia</b></div>
 
  <form method='post' action=''>
     {% csrf_token %}
@@ -49,7 +51,7 @@
     {% block script %}
         <script>
 
-            console.log('hello world')
+            /*console.log('hello world')
             const timer=document.getElementById('displaytimer')
             console.log(timer.textContent)
             const inputtag = document.getElementById('timer')
@@ -59,7 +61,29 @@
                 t+=1
                 timer.innerHTML ="<b>Timer: " +t+" seconds</b>"
                 inputtag.value = t
-            },1000)
+                
+                if (t >= 60)
+                {
+                    clearInterval(pysähdys)
+                }
+            },1000)*/
+            function countdown() {
+                var seconds = 60;
+                function tick() {
+                    var counter = document.getElementById("counter");
+                    seconds--;
+                    counter.innerHTML = "<b>Aikaa Jäljellä: " + (seconds < 10 ? "0" : "") + String(seconds);
+                    if( seconds > 0 ) {
+                        setTimeout(tick, 1000);
+                    } else {
+                        alert("Peli Loppu");
+                    }
+                }
+                tick();
+            }
+
+// start the countdown
+countdown();           
         </script>
     {% endblock script %}
 
