@@ -1,0 +1,51 @@
+body {
+    background-image: url(../docs/pics/Tausta2.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+}
+
+div {
+    color: white;
+    font-size: 20px;
+    text-shadow:2px 2px black;
+    
+}
+
+#counter {
+    position: sticky;
+    right: 20;
+    font-size: 50;
+    border-color: greenyellow;
+    top: 80;
+    font-family: sans-serif;
+    text-shadow: 3px 3px black;
+    text-decoration: underline;
+}
+
+.navbar {
+    overflow: hidden;
+    border: solid;
+    background-color: cadetblue;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index:1;
+    text-shadow: 1px 1px black;
+    color: black;
+  }
+
+#navbar navbar-expand-lg navbar-dark bg-pink {
+    background-color: pink
+    
+}
+
+.container {
+    padding-top: 100px;
+    backdrop-filter: blur(8px);
+    border: solid;
+    border-color: black;
+}

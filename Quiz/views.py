@@ -26,7 +26,7 @@ def home(request):
         percent = score/(total*10) *100
         context = {
             'score':score,
-            'time': request.POST.get('timer'),
+            'time': request.POST.get('counter'),
             'correct':correct,
             'wrong':wrong,
             'percent':percent,
